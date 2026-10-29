@@ -1,0 +1,40 @@
+RELATÓRIO DE TREINAMENTO E AVALIAÇÃO — INFOSIGA
+================================================================
+Registros utilizados: 635.287
+Não fatais: 608.751
+Fatais: 26.536
+Duplicatas exatas na base ML: 12
+Variáveis: tp_sinistro_primario, tipo_via, tipo_local, administracao, circunscricao, turno
+
+AVALIAÇÃO NO CONJUNTO DE TESTE
+Nota: matriz na ordem [não fatal, fatal], linhas = classe real, colunas = prevista.
+
+Regressão Logística
+  Acurácia: 76.25%
+  Precisão fatal: 12.08%
+  Recall fatal: 74.64%
+  F1 fatal: 0.208
+  Matriz de confusão:
+  [[92924, 28827], [1346, 3961]]
+
+Árvore de Decisão
+  Acurácia: 76.78%
+  Precisão fatal: 12.44%
+  Recall fatal: 75.54%
+  F1 fatal: 0.214
+  Matriz de confusão:
+  [[93542, 28209], [1298, 4009]]
+
+Random Forest
+  Acurácia: 75.75%
+  Precisão fatal: 12.10%
+  Recall fatal: 76.69%
+  F1 fatal: 0.209
+  Matriz de confusão:
+  [[92181, 29570], [1237, 4070]]
+
+OBSERVAÇÕES METODOLÓGICAS
+- A divisão treino/teste é aleatória e estratificada; se houver várias linhas do mesmo sinistro, a avaliação pode ser otimista.
+- A variável 'tp_sinistro_primario' foi mantida conforme a lista original, mas seu possível vínculo com a fatalidade deve ser conferido no dicionário do Infosiga.
+- O conjunto é desbalanceado; interpretar precisão, recall e F1 da classe fatal, não apenas acurácia.
+- Os resultados avaliam classificação de registros na base, não previsão determinística de acidentes futuros.

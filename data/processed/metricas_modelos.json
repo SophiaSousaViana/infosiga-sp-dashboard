@@ -1,0 +1,252 @@
+{
+  "versao": 1,
+  "alvo": "target_fatal",
+  "ordem_matriz_confusao": {
+    "labels": [
+      0,
+      1
+    ],
+    "linhas": "classe real",
+    "colunas": "classe prevista"
+  },
+  "divisao": {
+    "metodo": "train_test_split estratificado",
+    "test_size": 0.2,
+    "random_state": 42,
+    "registros_treino": 508229,
+    "registros_teste": 127058
+  },
+  "diagnostico_dados": {
+    "total_registros": 635287,
+    "total_nao_fatais": 608751,
+    "total_fatais": 26536,
+    "duplicatas_exatas_na_base_ml": 12,
+    "colunas_preditoras": [
+      "tp_sinistro_primario",
+      "tipo_via",
+      "tipo_local",
+      "administracao",
+      "circunscricao",
+      "turno"
+    ],
+    "distribuicao_alvo_percentual": {
+      "nao_fatal": 95.823,
+      "fatal": 4.177
+    }
+  },
+  "observacoes_metodologicas": [
+    "A divisão treino/teste é aleatória e estratificada; se houver várias linhas do mesmo sinistro, a avaliação pode ser otimista.",
+    "A variável 'tp_sinistro_primario' foi mantida conforme a lista original, mas seu possível vínculo com a fatalidade deve ser conferido no dicionário do Infosiga.",
+    "O conjunto é desbalanceado; interpretar precisão, recall e F1 da classe fatal, não apenas acurácia.",
+    "Os resultados avaliam classificação de registros na base, não previsão determinística de acidentes futuros."
+  ],
+  "modelos": [
+    {
+      "nome": "Regressão Logística",
+      "acuracia": 0.7625257756300272,
+      "classes": [
+        "Não fatal (0)",
+        "Fatal (1)"
+      ],
+      "matriz_confusao": [
+        [
+          92924,
+          28827
+        ],
+        [
+          1346,
+          3961
+        ]
+      ],
+      "metricas_por_classe": {
+        "nao_fatal": {
+          "precisao": 0.9857218627346982,
+          "recall": 0.7632298708018825,
+          "f1_score": 0.8603237648191611,
+          "suporte": 121751
+        },
+        "fatal": {
+          "precisao": 0.12080639258265219,
+          "recall": 0.7463727152817035,
+          "f1_score": 0.2079537997112482,
+          "suporte": 5307
+        }
+      },
+      "media_macro": {
+        "precision": 0.5532641276586752,
+        "recall": 0.754801293041793,
+        "f1-score": 0.5341387822652046
+      },
+      "media_ponderada": {
+        "precision": 0.9495957911760643,
+        "recall": 0.7625257756300272,
+        "f1-score": 0.8330753632637479
+      },
+      "relatorio_classificacao": {
+        "Não fatal": {
+          "precision": 0.9857218627346982,
+          "recall": 0.7632298708018825,
+          "f1-score": 0.8603237648191611,
+          "support": 121751.0
+        },
+        "Fatal": {
+          "precision": 0.12080639258265219,
+          "recall": 0.7463727152817035,
+          "f1-score": 0.2079537997112482,
+          "support": 5307.0
+        },
+        "accuracy": 0.7625257756300272,
+        "macro avg": {
+          "precision": 0.5532641276586752,
+          "recall": 0.754801293041793,
+          "f1-score": 0.5341387822652046,
+          "support": 127058.0
+        },
+        "weighted avg": {
+          "precision": 0.9495957911760643,
+          "recall": 0.7625257756300272,
+          "f1-score": 0.8330753632637479,
+          "support": 127058.0
+        }
+      }
+    },
+    {
+      "nome": "Árvore de Decisão",
+      "acuracia": 0.7677674762706795,
+      "classes": [
+        "Não fatal (0)",
+        "Fatal (1)"
+      ],
+      "matriz_confusao": [
+        [
+          93542,
+          28209
+        ],
+        [
+          1298,
+          4009
+        ]
+      ],
+      "metricas_por_classe": {
+        "nao_fatal": {
+          "precisao": 0.9863137916490932,
+          "recall": 0.7683058044697785,
+          "f1_score": 0.8637662691432239,
+          "suporte": 121751
+        },
+        "fatal": {
+          "precisao": 0.12443354646470917,
+          "recall": 0.7554173732805728,
+          "f1_score": 0.21367088607594936,
+          "suporte": 5307
+        }
+      },
+      "media_macro": {
+        "precision": 0.5553736690569011,
+        "recall": 0.7618615888751756,
+        "f1-score": 0.5387185776095866
+      },
+      "media_ponderada": {
+        "precision": 0.9503144963572302,
+        "recall": 0.7677674762706795,
+        "f1-score": 0.836612873072626
+      },
+      "relatorio_classificacao": {
+        "Não fatal": {
+          "precision": 0.9863137916490932,
+          "recall": 0.7683058044697785,
+          "f1-score": 0.8637662691432239,
+          "support": 121751.0
+        },
+        "Fatal": {
+          "precision": 0.12443354646470917,
+          "recall": 0.7554173732805728,
+          "f1-score": 0.21367088607594936,
+          "support": 5307.0
+        },
+        "accuracy": 0.7677674762706795,
+        "macro avg": {
+          "precision": 0.5553736690569011,
+          "recall": 0.7618615888751756,
+          "f1-score": 0.5387185776095866,
+          "support": 127058.0
+        },
+        "weighted avg": {
+          "precision": 0.9503144963572302,
+          "recall": 0.7677674762706795,
+          "f1-score": 0.836612873072626,
+          "support": 127058.0
+        }
+      }
+    },
+    {
+      "nome": "Random Forest",
+      "acuracia": 0.7575359284736105,
+      "classes": [
+        "Não fatal (0)",
+        "Fatal (1)"
+      ],
+      "matriz_confusao": [
+        [
+          92181,
+          29570
+        ],
+        [
+          1237,
+          4070
+        ]
+      ],
+      "metricas_por_classe": {
+        "nao_fatal": {
+          "precisao": 0.9867584405574943,
+          "recall": 0.757127251521548,
+          "f1_score": 0.8568241707680939,
+          "suporte": 121751
+        },
+        "fatal": {
+          "precisao": 0.12098692033293698,
+          "recall": 0.766911626154136,
+          "f1_score": 0.20900197704572882,
+          "suporte": 5307
+        }
+      },
+      "media_macro": {
+        "precision": 0.5538726804452156,
+        "recall": 0.7620194388378421,
+        "f1-score": 0.5329130739069113
+      },
+      "media_ponderada": {
+        "precision": 0.950596613220123,
+        "recall": 0.7575359284736105,
+        "f1-score": 0.8297657220117417
+      },
+      "relatorio_classificacao": {
+        "Não fatal": {
+          "precision": 0.9867584405574943,
+          "recall": 0.757127251521548,
+          "f1-score": 0.8568241707680939,
+          "support": 121751.0
+        },
+        "Fatal": {
+          "precision": 0.12098692033293698,
+          "recall": 0.766911626154136,
+          "f1-score": 0.20900197704572882,
+          "support": 5307.0
+        },
+        "accuracy": 0.7575359284736105,
+        "macro avg": {
+          "precision": 0.5538726804452156,
+          "recall": 0.7620194388378421,
+          "f1-score": 0.5329130739069113,
+          "support": 127058.0
+        },
+        "weighted avg": {
+          "precision": 0.950596613220123,
+          "recall": 0.7575359284736105,
+          "f1-score": 0.8297657220117417,
+          "support": 127058.0
+        }
+      }
+    }
+  ]
+}

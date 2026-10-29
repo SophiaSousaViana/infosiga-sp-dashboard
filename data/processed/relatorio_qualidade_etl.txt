@@ -1,0 +1,19 @@
+RELATÓRIO DE QUALIDADE — ETL INFOSIGA SP
+Período analisado: 2021–2025
+
+Arquivos CSV lidos: 3
+Registros brutos carregados: 1422546
+Registros por arquivo: {'data\\raw\\sinistros_2015-2021.csv': 535572, 'data\\raw\\sinistros_2022-2024.csv': 598885, 'data\\raw\\sinistros_2025-2026.csv': 288089}
+Datas inválidas/ausentes na base bruta: 0
+Registros fora do período ou sem data válida: 451543
+Registros no período selecionado: 971003
+Registros sem tipo_registro: 0
+Linhas exatamente duplicadas (diagnóstico, não removidas): 0
+Coluna anômala removida: True
+Diagnóstico de coordenadas: {'colunas_coordenadas_ausentes': [], 'coordenadas_ausentes': 89536, 'coordenadas_fora_faixa_global': 0, 'coordenadas_fora_limites_aproximados_sp': 2}
+Colunas excluídas da base de ML: ['id_sinistro', 'tipo_registro', 'qtd_gravidade_fatal', 'qtd_gravidade_grave', 'qtd_gravidade_leve', 'qtd_gravidade_ileso', 'qtd_gravidade_nao_disponivel']
+Registros na base de ML: 635287
+Distribuição do alvo: {0: 608751, 1: 26536}
+Percentuais do alvo: {0: 95.82, 1: 4.18}
+Arquivo dashboard: data\processed\infosiga_dashboard_2021_2025.parquet
+Arquivo ML: data\processed\infosiga_ml_2021_2025.parquet
