@@ -1,0 +1,20 @@
+```gitignore
+# Dados brutos do Infosiga
+data/raw/
+
+# Arquivos temporários e cache do Python
+__pycache__/
+*.py[cod]
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Configurações locais e segredos do Streamlit
+.streamlit/secrets.toml
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+```
