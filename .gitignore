@@ -1,6 +1,8 @@
 ```gitignore
 # Dados brutos do Infosiga
 data/raw/
+!data/raw/
+!data/raw/*.csv
 
 # Arquivos temporários e cache do Python
 __pycache__/
